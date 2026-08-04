@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBIOR 學習工具箱</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#061726;
+    --navy:#0C3550;
+    --blue:#134A6B;
+    --blue-bright:#1B6A90;
+    --sky:#9FC4D6;
+    --sky-soft:#8FC6DE;
+    --paper:#EAF4F8;
+    --paper-soft:#F1F7FA;
+    --line:#DCEAF1;
+    --teal:#6FD6C4;
+    --gold:#B08A55;
+    --card:#ffffff;
+    --sans:'Noto Sans TC', sans-serif;
+    --serif:'Noto Serif TC', serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:960px; margin:0 auto; padding:0 24px;}
+  header.hero{
+    padding:88px 0 56px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--blue-bright);
+    margin:0 0 18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;
+    height:1px;
+    background:var(--blue-bright);
+    display:inline-block;
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:900;
+    font-size:clamp(34px, 6vw, 56px);
+    line-height:1.25;
+    margin:0 0 20px;
+    color:var(--navy);
+  }
+  h1 span{color:var(--blue-bright);}
+  .lede{
+    font-size:17px;
+    line-height:1.9;
+    color:var(--blue);
+    max-width:56ch;
+    margin:0;
+  }
+
+  main{padding:56px 0 100px;}
+  .section-label{
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--blue);
+    margin:0 0 24px;
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+  }
+  .section-label::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  #tools{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+    gap:22px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:30px 26px 26px;
+    position:relative;
+    text-decoration:none;
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    min-height:200px;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .card::before{
+    content:attr(data-tab);
+    position:absolute;
+    top:-1px; left:26px;
+    transform:translateY(-100%);
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:11px;
+    letter-spacing:0.1em;
+    color:#fff;
+    background:var(--blue-bright);
+    padding:5px 10px 4px;
+    border-radius:4px 4px 0 0;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    border-color:var(--blue-bright);
+    box-shadow:0 14px 26px -18px rgba(6,23,38,0.35);
+  }
+  .card h2{
+    font-family:var(--serif);
+    font-size:21px;
+    font-weight:700;
+    margin:6px 0 12px;
+    line-height:1.4;
+    color:var(--navy);
+  }
+  .card p{
+    font-size:14.5px;
+    line-height:1.75;
+    color:var(--blue);
+    margin:0;
+    flex:1;
+  }
+  .card .go{
+    margin-top:18px;
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:0.08em;
+    color:var(--blue-bright);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .card .go::after{
+    content:"→";
+    transition:transform .18s ease;
+  }
+  .card:hover .go::after{
+    transform:translateX(4px);
+  }
+
+  /* 之後要加新工具，複製一個 .card 區塊改內容即可，這張佔位卡不用刪掉可先留著 */
+  .card.placeholder{
+    border-style:dashed;
+    background:transparent;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--blue);
+  }
+  .card.placeholder::before{display:none;}
+  .card.placeholder h2{font-size:15px; color:var(--blue); margin:0; font-family:var(--sans); font-weight:400;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:26px 0 60px;
+    font-size:12.5px;
+    color:var(--blue);
+    font-family:var(--sans);
+  }
+  footer .credit{
+    margin-top:14px;
+    font-size:12px;
+    line-height:1.9;
+    color:var(--blue);
+    opacity:0.85;
+  }
+
+  @media (max-width:600px){
+    header.hero{padding:56px 0 40px;}
+    main{padding:40px 0 72px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">SBIOR · 學習工具箱</p>
+    <h1>SBIOR <span>互動學習</span><br>工具箱</h1>
+    <p class="lede">收錄 SBIOR 反思架構的介紹、互動學習單與教師版，各工具可獨立使用，掃描 QR code 即可在手機或電腦上直接開啟。</p>
+  </header>
+
+  <main>
+    <p class="section-label">工具一覽</p>
+    <div id="tools">
+
+      <a class="card" data-tab="01" href="intro.html">
+        <h2>SBIOR 是什麼</h2>
+        <p>三分鐘認識 SBIOR 反思架構（情境·行為·影響·選項·結果），並看一個完整示例。</p>
+        <span class="go">開始閱讀</span>
+      </a>
+
+      <a class="card" data-tab="02" href="worksheet.html">
+        <h2>潛入內在冰山｜深度反思學習單</h2>
+        <p>SBIOR 深度反思與專業成長互動學習單，逐步引導自我覺察與反思。</p>
+        <span class="go">開始使用</span>
+      </a>
+
+      <a class="card" data-tab="03" href="teacher.html">
+        <h2>潛入內在冰山｜教師版</h2>
+        <p>教師版深度反思學習單，回顧一個困擾的溝通事件，逐層潛入內在冰山，看見情緒下的信念。</p>
+        <span class="go">開始使用</span>
+      </a>
+
+      <div class="card placeholder">
+        <h2>更多工具陸續加入中</h2>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    sbior-toolkit
+    <div class="credit">
+      課程設計｜國立臺灣師範大學陳佩英教授計畫團隊．愛思客團隊　幸福 O3 課程系列<br>
+      合作洽詢｜ho3team2025@gmail.com
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

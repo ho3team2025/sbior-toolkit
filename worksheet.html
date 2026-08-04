@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>潛入內在冰山｜SBIOR 深度反思與專業成長學習單</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --abyss:#061726;
+  --deep1:#0C3550;
+  --deep2:#134A6B;
+  --mid:#1B6A90;
+  --glacier:#6FD6C4;
+  --ice:#DCEAF1;
+  --foam:#F1F7FA;
+  --paper:#FBF7EF;
+  --paper-line:#E4DACB;
+  --ink:#0B2231;
+  --ink-soft:#4A6274;
+  --dawn:#E8974A;
+  --dawn-soft:#F6D9B6;
+  --shadow:0 1px 2px rgba(11,34,49,.06), 0 8px 28px rgba(11,34,49,.08);
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --stage:0;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--foam);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  transition:background .9s ease;
+}
+body[data-stage="0"]{background:#F1F7FA;}
+body[data-stage="1"]{background:#E7F1F6;}
+body[data-stage="2"]{background:#DCEBF2;}
+body[data-stage="3"]{background:#D0E4EE;}
+body[data-stage="4"]{background:#C6DEEB;}
+body[data-stage="5"]{background:linear-gradient(180deg,#C6DEEB 0%,#DCE9EC 60%,#F3E6D5 100%);}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;
+  background:linear-gradient(180deg,#EAF4F8 0%,#CFE6F0 100%);
+  color:var(--ink);
+  padding:0;
+}
+.hero-inner{
+  max-width:1180px;margin:0 auto;padding:52px 28px 44px;
+  display:grid;grid-template-columns:1.25fr .75fr;gap:36px;align-items:center;
+}
+.hero h1{
+  font-family:var(--serif);font-weight:900;font-size:clamp(30px,4.4vw,50px);
+  line-height:1.24;margin:14px 0 10px;letter-spacing:.02em;
+}
+.eyebrow{
+  font-size:12px;font-weight:500;letter-spacing:.34em;color:var(--mid);
+  text-transform:uppercase;
+}
+.hero p.sub{font-size:16px;color:var(--ink-soft);margin:0 0 22px;max-width:34em;}
+.hero .credit{font-size:12.5px;color:#9FC4D6;margin-top:26px;line-height:1.9;}
+.hero .credit strong{color:var(--ice);font-weight:500;}
+
+/* iceberg emblem */
+.berg{width:100%;max-width:330px;margin:0 auto;display:block;}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+.berg .bergbody{animation:bob 9s ease-in-out infinite;transform-origin:center;}
+.berg .ray{opacity:.5;}
+.berg text{font-family:var(--sans);font-size:9.5px;letter-spacing:.22em;}
+
+.above-note{margin-top:24px;font-size:13.5px;color:var(--ink-soft);max-width:36em;line-height:1.75;}
+.above-note b{display:block;font-family:var(--serif);font-size:15.5px;color:var(--deep2);font-weight:700;margin-bottom:2px;letter-spacing:.05em;}
+.waterband{background:linear-gradient(180deg,#134A6B 0%,#061726 100%);border-top:2px dashed var(--glacier);}
+.waterband-inner{max-width:1180px;margin:0 auto;padding:24px 28px 34px;color:#B7D5E4;font-size:13.5px;line-height:1.75;}
+.waterband-inner div{max-width:46em;}
+.waterband-inner b{display:block;font-family:var(--serif);font-size:15.5px;color:#EAF4F8;font-weight:700;margin-bottom:2px;letter-spacing:.05em;}
+.hero-wrap{background:#061726;}
+
+/* ---------- layout ---------- */
+.shell{max-width:1180px;margin:0 auto;padding:40px 28px 90px;display:grid;grid-template-columns:186px 1fr;gap:40px;align-items:start;}
+
+/* ---------- depth rail ---------- */
+.rail{position:sticky;top:24px;}
+.rail-title{font-size:11px;letter-spacing:.3em;color:var(--ink-soft);margin-bottom:18px;font-weight:500;}
+.rail-list{list-style:none;margin:0;padding:0;position:relative;}
+.rail-list::before{content:"";position:absolute;left:13px;top:14px;bottom:14px;width:2px;background:#C3D6E0;border-radius:2px;}
+.rail-fill{position:absolute;left:13px;top:14px;width:2px;background:linear-gradient(180deg,var(--glacier),var(--deep2));border-radius:2px;height:0;transition:height .5s cubic-bezier(.4,0,.2,1);}
+.rail-item{position:relative;padding:0 0 22px 40px;}
+.rail-btn{
+  all:unset;cursor:pointer;display:block;width:100%;
+}
+.rail-btn:focus-visible{outline:2.5px solid var(--mid);outline-offset:4px;border-radius:6px;}
+.dot{
+  position:absolute;left:6px;top:5px;width:16px;height:16px;border-radius:50%;
+  background:var(--foam);border:2.5px solid #B4CBD8;transition:all .3s ease;
+}
+.rail-item[data-state="done"] .dot{background:var(--glacier);border-color:var(--deep2);}
+.rail-item[data-state="current"] .dot{background:#fff;border-color:var(--deep2);box-shadow:0 0 0 5px rgba(19,74,107,.16);}
+.rail-letter{font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:.16em;color:var(--ink-soft);line-height:1.2;}
+.rail-item[data-state="current"] .rail-letter,.rail-item[data-state="done"] .rail-letter{color:var(--deep1);}
+.rail-name{font-size:13px;color:var(--ink-soft);}
+.rail-depth{font-size:11px;color:#8AA6B7;letter-spacing:.12em;}
+.rail-water{position:relative;padding-left:40px;margin:-8px 0 14px;font-size:11px;letter-spacing:.2em;color:var(--mid);}
+.rail-water::before{content:"";position:absolute;left:0;right:0;top:9px;border-top:1.5px dashed #8FBCD2;}
+.rail-water span{background:var(--foam);padding-right:8px;position:relative;}
+.rail-meta{margin-top:8px;font-size:12px;color:var(--ink-soft);border-top:1px solid #C9DBE4;padding-top:14px;}
+.rail-meta b{font-family:var(--serif);font-size:17px;color:var(--deep1);}
+
+/* ---------- cards ---------- */
+.card{
+  background:#fff;border-radius:4px;box-shadow:var(--shadow);
+  padding:30px 32px;margin-bottom:26px;
+}
+.notice{border-left:4px solid var(--dawn);}
+.notice h2{font-family:var(--serif);font-size:19px;margin:0 0 12px;font-weight:700;}
+.notice ul{margin:0;padding-left:1.1em;font-size:14.5px;color:var(--ink-soft);}
+.notice li{margin-bottom:7px;}
+.notice li b{color:var(--ink);}
+details.notice-wrap{margin-bottom:26px;}
+details.notice-wrap summary{
+  cursor:pointer;font-size:13px;letter-spacing:.14em;color:var(--mid);padding:6px 0;font-weight:500;
+}
+details.notice-wrap summary:focus-visible{outline:2.5px solid var(--mid);outline-offset:3px;}
+
+.eventbar{background:#fff;border-radius:4px;box-shadow:var(--shadow);padding:22px 32px;margin-bottom:26px;}
+.eventbar label{display:block;font-size:12px;letter-spacing:.2em;color:var(--mid);margin-bottom:8px;font-weight:500;}
+.eventbar input{
+  width:100%;border:none;border-bottom:2px solid var(--paper-line);background:transparent;
+  font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);padding:6px 2px;
+}
+.eventbar input:focus{outline:none;border-bottom-color:var(--mid);}
+.eventbar input::placeholder{color:#B9C6CE;font-weight:400;}
+
+/* step */
+.step{display:none;animation:rise .5s cubic-bezier(.2,.7,.3,1);}
+.step.active{display:block;}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.step-head{margin-bottom:20px;}
+.step-head .letter{
+  font-family:var(--serif);font-weight:900;font-size:60px;line-height:.9;color:var(--deep2);
+  letter-spacing:.06em;display:inline-block;vertical-align:-6px;margin-right:16px;
+}
+.step-head .hgroup{display:inline-block;vertical-align:bottom;}
+.step-head h2{font-family:var(--serif);font-size:25px;margin:0;font-weight:700;letter-spacing:.03em;}
+.step-head .en{font-size:12.5px;letter-spacing:.16em;color:var(--mid);}
+.step-head .lead{margin:12px 0 0;font-size:15px;color:var(--ink-soft);}
+
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:4px;overflow:hidden;box-shadow:var(--shadow);}
+.panel{padding:26px 26px 22px;}
+.panel-inner{background:linear-gradient(165deg,#134A6B 0%,#0C3550 55%,#082639 100%);color:#DCEAF1;}
+.panel-fact{background:var(--paper);color:var(--ink);}
+.panel h3{font-family:var(--serif);font-size:17px;margin:0 0 3px;font-weight:700;letter-spacing:.04em;}
+.panel .side{font-size:11px;letter-spacing:.24em;font-weight:500;margin-bottom:2px;}
+.panel-inner .side{color:var(--glacier);}
+.panel-fact .side{color:#B08A55;}
+.panel .psub{font-size:13px;margin:0 0 20px;}
+.panel-inner .psub{color:#9FC4D6;}
+.panel-fact .psub{color:var(--ink-soft);}
+
+.field{margin-bottom:18px;}
+.field label{display:block;font-size:14px;font-weight:500;margin-bottom:3px;}
+.field .hint{display:block;font-size:12.5px;margin-bottom:7px;line-height:1.6;}
+.panel-inner .hint{color:#8FB4C8;}
+.panel-fact .hint{color:#96866F;}
+.field textarea{
+  width:100%;font-family:var(--sans);font-size:15px;line-height:1.8;
+  border-radius:3px;padding:11px 13px;resize:vertical;min-height:76px;
+  transition:border-color .2s,box-shadow .2s;
+}
+.panel-inner textarea{background:rgba(255,255,255,.07);border:1.5px solid rgba(160,200,220,.3);color:#EAF4F8;}
+.panel-inner textarea::placeholder{color:#6E93A9;}
+.panel-inner textarea:focus{outline:none;border-color:var(--glacier);box-shadow:0 0 0 3px rgba(111,214,196,.2);background:rgba(255,255,255,.12);}
+.panel-fact textarea{background:#fff;border:1.5px solid var(--paper-line);color:var(--ink);}
+.panel-fact textarea::placeholder{color:#BDB3A3;}
+.panel-fact textarea:focus{outline:none;border-color:var(--mid);box-shadow:0 0 0 3px rgba(27,106,144,.14);}
+
+.chips{margin:-6px 0 18px;}
+.chips .chips-label{font-size:12px;color:#8FB4C8;margin-bottom:8px;letter-spacing:.1em;}
+.chip{
+  font-family:var(--sans);font-size:13px;cursor:pointer;
+  background:rgba(111,214,196,.12);border:1px solid rgba(111,214,196,.35);color:#BDE9DE;
+  border-radius:20px;padding:3px 12px;margin:0 6px 7px 0;transition:all .18s;
+}
+.chip:hover{background:rgba(111,214,196,.26);color:#fff;}
+.chip:focus-visible{outline:2.5px solid var(--glacier);outline-offset:2px;}
+
+.starnote{
+  font-size:13px;color:#9FC4D6;border-left:2px solid var(--glacier);
+  padding:2px 0 2px 12px;margin:-4px 0 18px;line-height:1.7;
+}
+
+/* 情緒儀表板詞彙 */
+.mood{margin:-6px 0 18px;}
+.mood-note{font-size:12px;color:#8FB4C8;margin-bottom:10px;letter-spacing:.06em;line-height:1.7;}
+.mood-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+.mood-tab{
+  font-family:var(--sans);font-size:12.5px;cursor:pointer;border-radius:3px;padding:5px 11px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(160,200,220,.26);color:#9FC4D6;
+  display:inline-flex;align-items:center;gap:7px;transition:all .18s;
+}
+.mood-tab .sw{width:9px;height:9px;border-radius:2px;display:inline-block;flex:0 0 auto;}
+.mood-tab:hover{background:rgba(255,255,255,.12);color:#EAF4F8;}
+.mood-tab[aria-selected="true"]{background:rgba(255,255,255,.16);color:#fff;border-color:rgba(160,200,220,.62);}
+.mood-tab:focus-visible{outline:2.5px solid var(--glacier);outline-offset:2px;}
+.mood-panel{display:none;}
+.mood-panel.on{display:block;}
+.chip.q-red{background:rgba(233,160,160,.13);border-color:rgba(233,160,160,.38);color:#F1B6B6;}
+.chip.q-red:hover{background:rgba(233,160,160,.28);color:#fff;}
+.chip.q-yellow{background:rgba(239,206,147,.13);border-color:rgba(239,206,147,.38);color:#F2D8A6;}
+.chip.q-yellow:hover{background:rgba(239,206,147,.28);color:#fff;}
+.chip.q-blue{background:rgba(169,198,236,.13);border-color:rgba(169,198,236,.38);color:#BFD6F2;}
+.chip.q-blue:hover{background:rgba(169,198,236,.28);color:#fff;}
+.chip.q-green{background:rgba(155,220,187,.13);border-color:rgba(155,220,187,.38);color:#AFE4C8;}
+.chip.q-green:hover{background:rgba(155,220,187,.28);color:#fff;}
+.chip.q-extra{background:rgba(195,214,224,.12);border-color:rgba(195,214,224,.34);color:#CBDCE6;}
+.chip.q-extra:hover{background:rgba(195,214,224,.26);color:#fff;}
+
+/* nav */
+.stepnav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:24px;}
+.btn{
+  font-family:var(--sans);font-size:14.5px;cursor:pointer;border-radius:3px;
+  padding:11px 22px;border:1.5px solid var(--deep2);background:transparent;color:var(--deep1);
+  transition:all .2s;font-weight:500;
+}
+.btn:hover{background:var(--deep2);color:#fff;}
+.btn:focus-visible{outline:2.5px solid var(--mid);outline-offset:3px;}
+.btn[disabled]{opacity:.32;cursor:not-allowed;}
+.btn[disabled]:hover{background:transparent;color:var(--deep1);}
+.btn-primary{background:var(--deep1);border-color:var(--deep1);color:#fff;}
+.btn-primary:hover{background:var(--abyss);border-color:var(--abyss);}
+.btn-warm{border-color:var(--dawn);color:#A9631E;}
+.btn-warm:hover{background:var(--dawn);color:#fff;}
+.btn-sm{font-size:13px;padding:8px 15px;}
+
+/* summary */
+.summary .card{border-top:4px solid var(--dawn);}
+.summary h2{font-family:var(--serif);font-size:23px;margin:0 0 6px;font-weight:700;}
+.summary .lead{color:var(--ink-soft);font-size:14.5px;margin:0 0 22px;}
+.summary textarea{
+  width:100%;font-family:var(--sans);font-size:15.5px;line-height:1.9;min-height:150px;
+  border:1.5px solid var(--paper-line);border-radius:3px;padding:14px;background:var(--paper);color:var(--ink);
+}
+.summary textarea:focus{outline:none;border-color:var(--dawn);box-shadow:0 0 0 3px rgba(232,151,74,.16);}
+.sel-grid{display:flex;flex-wrap:wrap;gap:9px;margin:6px 0 22px;}
+.sel{
+  font-family:var(--sans);font-size:14px;cursor:pointer;border-radius:3px;padding:9px 16px;
+  border:1.5px solid var(--paper-line);background:#fff;color:var(--ink-soft);transition:all .2s;
+}
+.sel:hover{border-color:var(--dawn);}
+.sel[aria-pressed="true"]{background:var(--dawn);border-color:var(--dawn);color:#fff;font-weight:500;}
+.sel:focus-visible{outline:2.5px solid var(--dawn);outline-offset:3px;}
+.fieldset-label{font-size:12px;letter-spacing:.2em;color:var(--mid);margin-bottom:10px;font-weight:500;}
+
+/* toolbar */
+.toolbar{
+  position:sticky;bottom:0;z-index:20;margin-top:30px;
+  background:rgba(255,255,255,.93);backdrop-filter:blur(8px);
+  border-top:1px solid #CFE0E8;padding:14px 28px;
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+}
+.toolbar .save{font-size:12.5px;color:var(--ink-soft);margin-right:auto;}
+.toolbar .save b{color:var(--deep1);font-weight:500;}
+
+/* AI helper */
+.helper{margin-top:20px;border:1.5px dashed #A9C7D6;border-radius:4px;padding:18px 20px;background:rgba(255,255,255,.6);}
+.helper h4{font-family:var(--serif);font-size:15.5px;margin:0 0 4px;font-weight:700;}
+.helper p.note{font-size:12.5px;color:var(--ink-soft);margin:0 0 12px;line-height:1.7;}
+.helper-out{font-size:14.5px;line-height:1.85;color:var(--ink);white-space:pre-wrap;margin-top:14px;
+  border-left:3px solid var(--glacier);padding-left:14px;}
+.helper-out:empty{display:none;}
+.spin{display:inline-block;width:13px;height:13px;border:2px solid #B4CBD8;border-top-color:var(--deep2);border-radius:50%;animation:sp .8s linear infinite;vertical-align:-2px;margin-right:6px;}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+.toast{
+  position:fixed;left:50%;bottom:86px;transform:translateX(-50%) translateY(14px);
+  background:var(--abyss);color:#EAF4F8;font-size:14px;padding:11px 22px;border-radius:3px;
+  opacity:0;pointer-events:none;transition:all .3s;z-index:60;
+}
+.toast.show{opacity:1;transform:translateX(-50%);}
+
+.foot{max-width:1180px;margin:0 auto;padding:0 28px 60px;font-size:12px;color:var(--ink-soft);line-height:1.9;}
+
+/* responsive */
+@media (max-width:940px){
+  .hero-inner{grid-template-columns:1fr;gap:20px;padding:38px 20px 30px;}
+  .berg{max-width:240px;}
+  .waterband-inner{padding:20px 20px 28px;}
+  .shell{grid-template-columns:1fr;padding:26px 18px 80px;gap:22px;}
+  .rail{position:static;}
+  .rail-list::before,.rail-fill{display:none;}
+  .rail-list{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;}
+  .rail-item{padding:0;flex:0 0 auto;}
+  .rail-item .dot{display:none;}
+  .rail-btn{border:1.5px solid #B4CBD8;border-radius:3px;padding:7px 13px;background:#fff;}
+  .rail-item[data-state="current"] .rail-btn{border-color:var(--deep1);background:var(--deep1);}
+  .rail-item[data-state="current"] .rail-letter,.rail-item[data-state="current"] .rail-name{color:#fff;}
+  .rail-name{font-size:12px;}
+  .rail-depth,.rail-water,.rail-title{display:none;}
+  .panels{grid-template-columns:1fr;}
+  .panel-fact{order:-1;}
+  .card,.eventbar{padding:22px 18px;}
+  .step-head .letter{font-size:44px;margin-right:12px;}
+  .toolbar{padding:12px 16px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  html{scroll-behavior:auto;}
+}
+
+/* print */
+@media print{
+  body{background:#fff!important;}
+  .hero-wrap,.rail,.toolbar,.stepnav,.helper,.notice-wrap,.chips,.mood,.foot,.toast{display:none!important;}
+  .shell{grid-template-columns:1fr;padding:0;max-width:none;}
+  .step{display:block!important;page-break-after:always;}
+  .card,.eventbar{box-shadow:none;border:1px solid #ccc;}
+  .panels{grid-template-columns:1fr 1fr;box-shadow:none;border:1px solid #ccc;}
+  .panel-inner{background:#fff!important;color:#000!important;border-right:3px solid #0C3550;}
+  .panel-inner .side{color:#0C3550!important;}
+  .panel-inner .psub,.panel-inner .hint{color:#555!important;}
+  .panel-inner textarea{background:#fff!important;color:#000!important;border:1px solid #bbb!important;}
+  .starnote{color:#333!important;}
+  textarea{min-height:auto!important;}
+}
+</style>
+</head>
+<body data-stage="0">
+
+<div class="hero-wrap">
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Situation · Behavior · Impact · Option · Result</div>
+      <h1>潛入內在冰山</h1>
+      <p class="sub">SBIOR 深度反思與專業成長學習單。看見情緒下的信念，從事件走向成長。</p>
+      <p class="sub" style="font-size:14.5px;">這是一份您與自己的對話工具。它會陪您回顧一個近期在工作中讓您感到困擾、或結果不滿意的溝通事件，一格一格往下潛，直到看見水面下真正驅動行為的力量。</p>
+    </div>
+    <div>
+      <svg class="berg" viewBox="0 0 300 300" role="img" aria-label="冰山示意圖，水面上是可見的事件與行為，水面下是感受、觀點、期待與渴望">
+        <defs>
+          <linearGradient id="gAbove" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#D8ECF5"/>
+          </linearGradient>
+          <linearGradient id="gBelow" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#8FC6DE" stop-opacity=".95"/><stop offset="100%" stop-color="#2C6F94" stop-opacity=".35"/>
+          </linearGradient>
+        </defs>
+        <g class="bergbody">
+          <path d="M150 30 L196 122 L104 122 Z" fill="url(#gAbove)"/>
+          <path d="M96 124 L204 124 L232 176 L206 232 L224 262 L150 292 L82 254 L64 200 L74 152 Z" fill="url(#gBelow)"/>
+          <path class="ray" d="M150 30 L196 122 L150 122 Z" fill="#ffffff" opacity=".55"/>
+        </g>
+        <line x1="16" y1="123" x2="284" y2="123" stroke="#6FD6C4" stroke-width="1.6" stroke-dasharray="6 5"/>
+        <text x="16" y="114" fill="#1B6A90">ABOVE</text>
+        <text x="16" y="140" fill="#8FC6DE">BELOW</text>
+      </svg>
+      <div class="above-note"><b>水面上　看得見的</b>事件、行為、說出口的話語。這些都能用感官知覺，是我們最容易觀察到的外在表現。</div>
+    </div>
+  </div>
+</header>
+<div class="waterband">
+  <div class="waterband-inner">
+    <div><b>水面下　看不見的</b>感受、感受的感受、觀點、期待與渴望。這些隱藏的層面，才是真正驅動行為的核心力量。</div>
+  </div>
+</div>
+</div>
+
+<div class="shell">
+
+  <!-- ============ 深度導覽 ============ -->
+  <nav class="rail" aria-label="步驟導覽">
+    <div class="rail-title">下潛深度</div>
+    <ul class="rail-list" id="rail">
+      <div class="rail-fill" id="railFill"></div>
+    </ul>
+    <div class="rail-meta">
+      已填寫 <b><span id="doneCount">0</span></b> / <span id="totalCount">25</span> 格
+    </div>
+  </nav>
+
+  <main>
+    <!-- 使用說明 -->
+    <details class="notice-wrap" open>
+      <summary>使用說明與安全提醒</summary>
+      <div class="card notice">
+        <h2>開始之前</h2>
+        <ul>
+          <li><b>右手欄（事實）</b>請扮演一部攝影機，只記錄看得到、聽得到的事，不帶任何形容詞。</li>
+          <li><b>左手欄（後設）</b>請誠實地探索與記錄您內心的感受、想法、詮釋與判斷。</li>
+          <li>建議每一步驟<b>先填右手欄，再回到左手欄</b>。先把事實穩住，內在的探索才有立足點。</li>
+          <li>這份學習單沒有對錯之分。整個過程可能會觸發一些情緒，請溫柔地對待自己，需要時隨時停下來。</li>
+          <li>您填寫的內容只留在這個瀏覽器裡，會自動暫存。完成後可以下載、複製或列印，帶到小組共編或個人檔案中。</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- 事件 -->
+    <div class="eventbar">
+      <label for="eventTitle">我想要反思的事件是</label>
+      <input id="eventTitle" type="text" placeholder="用一句話描述這個事件，例如：期末班親會上與一位家長的對話">
+    </div>
+
+    <!-- 五個步驟 -->
+    <div id="steps"></div>
+
+    <!-- 總結 -->
+    <section class="summary" id="summarySection">
+      <div class="card">
+        <h2>總結與收穫</h2>
+        <p class="lead">走完五個欄位，也象徵您已經走完從事件到反思、從感受到行動的整個學習旅程。</p>
+
+        <div class="fieldset-label">從今天的歷程中，我最想帶回教學現場的 SEL 核心能力</div>
+        <div class="sel-grid" id="selGrid"></div>
+
+        <div class="fieldset-label">完成這份學習單後，我最大的發現與學習是</div>
+        <textarea id="summaryText" placeholder="可以寫下發現，也可以寫詩、畫下一個畫面、用任何形式表達這段歷程中的看見。"></textarea>
+      </div>
+
+      <div class="card notice" style="border-left-color:var(--mid);">
+        <h2>回望這段歷程</h2>
+        <ul>
+          <li><b>釐清與同理</b>寫下來的過程，在哪裡幫助您釐清了事件的脈絡，或是同理了自己的情緒？</li>
+          <li><b>覺察與啟發</b>哪一格問題點出了您未曾想到的切入點？這對您未來的運用有什麼啟發？</li>
+          <li><b>溫度與主控</b>作為衝突事件的當事者，有哪些溫度、脈絡與關鍵理解，是只有「您」才能賦予的？</li>
+        </ul>
+      </div>
+
+      <div class="stepnav">
+        <button class="btn" id="backToR">回到步驟五</button>
+        <button class="btn btn-warm" onclick="window.print()">列印或存成 PDF</button>
+      </div>
+    </section>
+
+    <!-- 工具列 -->
+    <div class="toolbar">
+      <span class="save">自動暫存　<b id="saveState">尚未開始</b></span>
+      <button class="btn btn-sm" id="btnCopy">複製全部內容</button>
+      <button class="btn btn-sm" id="btnDownload">下載文字檔</button>
+      <button class="btn btn-sm" id="btnPrint">列印 / PDF</button>
+      <button class="btn btn-sm" id="btnClear">清空重寫</button>
+    </div>
+  </main>
+</div>
+
+<div class="foot">
+  課程設計｜國立臺灣師範大學陳佩英教授計畫團隊．愛思客團隊　幸福 O3 課程系列<br>
+  理論參照｜薩提爾冰山理論，李崇建（2017）《薩提爾的對話練習》<br>
+  合作洽詢｜ho3team2025@gmail.com
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= 資料結構 ================= */
+const MOOD = [
+  {k:"red", label:"高活力 · 低愉悅", sw:"#E9A0A0", words:[
+    "憤怒的","驚慌失措的","壓力很大的","緊張不安的","震驚的",
+    "暴怒的","氣沖沖的","沮喪的","神經緊繃的","錯愕的",
+    "火冒三丈的","受到驚嚇的","生氣的","緊張的","坐立難安的",
+    "焦慮的","焦慮不安的","擔心的","被激怒的","被惹惱的",
+    "反感的","困擾的","在意的","忐忑不安的","不太高興的"]},
+  {k:"yellow", label:"高活力 · 高愉悅", sw:"#EFCE93", words:[
+    "驚喜的","振奮的","歡慶的","心花怒放的","欣喜若狂的",
+    "亢奮的","愉悅的","有動力的","受到啟發的","興高采烈的",
+    "精力充沛的","生氣勃勃的","興奮的","樂觀的","熱情洋溢的",
+    "開心的","集中的","快樂的","驕傲的","興奮激動的",
+    "令人愉快的","欣喜的","有希望的","好玩的","幸福的"]},
+  {k:"blue", label:"低活力 · 低愉悅", sw:"#A9C6EC", words:[
+    "厭惡的","死氣沉沉的","失望的","低落的","提不起勁的",
+    "悲觀的","鬱鬱寡歡的","洩氣的","難過的","無聊的",
+    "疏離的","悲慘的","孤單的","心灰意冷的","疲累的",
+    "消沉的","抑鬱的","悶悶不樂的","精疲力盡的","疲勞的",
+    "絕望的","無望的","孤寂的","疲憊不堪的","被榨乾的"]},
+  {k:"green", label:"低活力 · 高愉悅", sw:"#9BDCBB", words:[
+    "自在的","隨和的","知足的","充滿愛的","心滿意足的",
+    "平靜的","安全的","滿意的","滿懷感謝的","感動的",
+    "放鬆的","冷靜的","寧靜的","有福氣的","平衡的",
+    "柔和的","考慮周到的","平和的","舒服的","無憂無慮的",
+    "昏昏欲睡的","自鳴得意的","靜謐的","舒適的","安詳的"]},
+  {k:"extra", label:"學習單常用", sw:"#C3D6E0", words:[
+    "委屈的","被誤解的","無助的","挫折的","羞愧的","內疚的",
+    "失落的","心疼的","尷尬的","不甘的","矛盾的","麻木的"]}
+];
+const LONG_WORDS = ["被理解","被尊重","被接納","被看見","被信任","歸屬感","安全感","價值感","自由","意義","連結","公平","勝任"];
+
+const STEPS = [
+  {
+    key:"S", num:"步驟一", title:"情境與理解", en:"Situation & Understanding", depth:"水面",
+    lead:"探索事件的開端，區分事實與我的第一反應。",
+    fact:{ side:"S　事實與外顯行為", head:"情境", sub:"事件可觀察到的要素", fields:[
+      {id:"s_f1", label:"人事時地物", hint:"當時有哪些人參與？發生的具體時間與地點是？", ph:"例如：週三下午三點，辦公室，我、導師與一位學生。"},
+      {id:"s_f2", label:"事實", hint:"如果用錄影機拍下來，會看到、聽到什麼？不帶任何形容詞。", ph:"只寫鏡頭拍得到的：誰說了哪一句話、誰做了什麼動作。"}
+    ]},
+    inner:{ side:"S　我的主觀經驗與內在歷程", head:"理解", sub:"我的初步詮釋", chips:"feel", fields:[
+      {id:"s_i1", label:"當下情緒", hint:"我當時感覺到哪些情緒？例如焦慮、生氣、失望。", ph:"可以點選下方詞彙，也可以自己寫。"},
+      {id:"s_i2", label:"第一念頭", hint:"我腦中閃過的第一個想法是什麼？", ph:"那個還來不及修飾的念頭。"},
+      {id:"s_i3", label:"我的解讀", hint:"我覺得對方是什麼意思？這整件事對我來說意味著什麼？", ph:""}
+    ]}
+  },
+  {
+    key:"B", num:"步驟二", title:"行為與感受", en:"Behavior & Feelings", depth:"淺層",
+    lead:"深入覺察自己與他人的言行，以及這些言行背後更深層的感受。",
+    fact:{ side:"B　事實與外顯行為", head:"行為", sub:"具體的言行舉止", fields:[
+      {id:"b_f1", label:"我的言行", hint:"我具體說了什麼？做了什麼？", ph:"盡量還原原話。"},
+      {id:"b_f2", label:"對方的言行", hint:"對方具體說了什麼？做了什麼？", ph:""},
+      {id:"b_f3", label:"非語言訊息", hint:"過程中是否有明顯的表情、音調或肢體動作？", ph:"例如：語速變快、轉開視線、雙手交叉。"}
+    ]},
+    inner:{ side:"B　我的經驗與內在歷程", head:"感受", sub:"行為背後的情感", chips:"feel", fields:[
+      {id:"b_i1", label:"我的內心感受", hint:"當我選擇那樣回應時，內心真正的感受是什麼？例如感到委屈、被誤解、無助。", ph:""},
+      {id:"b_i2", label:"對「感受」的感受及產生來源", hint:"對於自己有這樣的感受，我又有什麼樣的看法或感覺？例如對當下的情緒感覺到被誤解。", ph:"這一格是往下潛的關鍵。我允許自己有這個感受嗎？"}
+    ]}
+  },
+  {
+    key:"I", num:"步驟三", title:"影響與意圖", en:"Impact & Intent", depth:"中層",
+    lead:"反思事件帶來的具體結果，並檢視我是如何形成我的結論的。",
+    fact:{ side:"I　事實與外顯行為", head:"影響", sub:"可觀察到的結果", fields:[
+      {id:"i_f1", label:"對他人的影響", hint:"我的言行對他人產生了什麼可觀察的影響？", ph:""},
+      {id:"i_f2", label:"事件結果", hint:"這件事的結果是什麼？", ph:""},
+      {id:"i_f3", label:"預期落差", hint:"這個結果哪些部分超出我的預期？", ph:""}
+    ]},
+    inner:{ side:"I　我的經驗與內在歷程", head:"意圖與推論", sub:"我如何詮釋這個結果，我怎麼下這個結論", star:"★ 當下為何這樣做（意圖）　★ 若沒有那樣做／事後有改變（影響）", fields:[
+      {id:"i_i1", label:"對我的影響", hint:"這件事對我的心理或情感帶來什麼影響？", ph:""},
+      {id:"i_i2", label:"我下的結論", hint:"從這個結果中，我對自己、他人或這段關係得出了什麼結論？", ph:"例如：他就是不信任我。"},
+      {id:"i_i3", label:"造成結論的意圖與影響", hint:"我是根據哪些資訊和假設，才得到這個結論的？", ph:"把推論的階梯一階一階寫下來。"}
+    ]}
+  },
+  {
+    key:"O", num:"步驟四", title:"選項與重評", en:"Option & Reframing", depth:"深層",
+    lead:"挑戰自己原有的思維模式，探索其他可能性。",
+    fact:{ side:"O　事實與外顯行為", head:"選項", sub:"探索不同的應對方式", fields:[
+      {id:"o_f1", label:"如果時間倒流", hint:"我可以選擇說些或做些什麼不同的事？", ph:""},
+      {id:"o_f2", label:"其他可能性", hint:"還有哪些是我沒想過的應對方法或策略？", ph:"試著寫出三個，第三個通常最有意思。"}
+    ]},
+    inner:{ side:"O　我的經驗與內在歷程", head:"重評", sub:"探索內在的觀點與期待", fields:[
+      {id:"o_i1", label:"背後假設", hint:"我當時的反應是基於什麼樣的信念或假設？這個假設合理嗎？", ph:""},
+      {id:"o_i2", label:"內心期待", hint:"在那樣的情境下，我對自己、對他人有什麼樣的期待？", ph:"對自己的期待、對他人的期待，可以分開寫。"}
+    ]}
+  },
+  {
+    key:"R", num:"步驟五", title:"結果與修復", en:"Result & Recovery", depth:"山底",
+    lead:"連結內心深層的渴望，並為未來規劃出有建設性的行動。",
+    fact:{ side:"R　事實與外顯行為", head:"結果與行動", sub:"規劃具體的修復方案", fields:[
+      {id:"r_f1", label:"修復行動", hint:"如果重來一次，我會怎麼反應？結果會有什麼不同？如果可能，我會採取什麼具體行動來修復這個事件或關係？", ph:"例如：道歉、說明、重新開啟一次對話。"},
+      {id:"r_f2", label:"未來調整", hint:"為了避免未來重蹈覆轍，我可以做出哪些具體的行為調整？", ph:"寫得越具體，越做得到。"}
+    ]},
+    inner:{ side:"R　我的經驗與內在歷程", head:"修復與成長", sub:"連結深層渴望與學習", chips:"long", fields:[
+      {id:"r_i1", label:"深層渴望", hint:"在那些期待的背後，我內心真正渴望的是什麼？例如被理解、被尊重、歸屬感。", ph:""},
+      {id:"r_i2", label:"深刻反思", hint:"這次經驗讓我學到了關於自己或他人的什麼事？在自我覺察、社會覺察、負責任決定中，有什麼深刻的看見？", ph:""},
+      {id:"r_i3", label:"成長心態", hint:"當我連結到這份渴望時，我如何看待自己？這次經驗如何幫助我成長？", ph:""}
+    ]}
+  }
+];
+
+const SEL = ["自我覺察","自我管理","人際技巧","社會覺察","負責任的決策"];
+
+/* ================= 狀態 ================= */
+const state = { current:0, data:{}, sel:[] };
+const ALL_IDS = STEPS.flatMap(s=>[...s.fact.fields, ...s.inner.fields].map(f=>f.id));
+document.getElementById("totalCount").textContent = ALL_IDS.length;
+
+/* ================= 建立畫面 ================= */
+function esc(s){ return String(s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+function fieldHTML(f){
+  return `<div class="field">
+    <label for="${f.id}">${esc(f.label)}</label>
+    <span class="hint">${esc(f.hint)}</span>
+    <textarea id="${f.id}" data-fid="${f.id}" placeholder="${esc(f.ph||"")}"></textarea>
+  </div>`;
+}
+
+function chipsHTML(kind){
+  if(kind !== "feel"){
+    return `<div class="chips"><div class="chips-label">渴望通常藏在期待的背後</div>` +
+      LONG_WORDS.map(w=>`<button type="button" class="chip" data-word="${w}">${w}</button>`).join("") + `</div>`;
+  }
+  const tabs = MOOD.map((q,i)=>
+    `<button type="button" class="mood-tab" role="tab" data-q="${i}" aria-selected="${i===0?"true":"false"}"><span class="sw" style="background:${q.sw}"></span>${q.label}</button>`
+  ).join("");
+  const panels = MOOD.map((q,i)=>
+    `<div class="mood-panel${i===0?" on":""}" data-q="${i}">` +
+    q.words.map(w=>`<button type="button" class="chip q-${q.k}" data-word="${w}">${w}</button>`).join("") +
+    `</div>`
+  ).join("");
+  return `<div class="mood">
+    <div class="mood-note">情緒儀表板以活力高低與愉悅高低兩個軸線定位情緒。先選一個象限，再點詞填入左側欄位，可以連續點選多個。</div>
+    <div class="mood-tabs" role="tablist">${tabs}</div>${panels}</div>`;
+}
+
+function stepHTML(s, idx){
+  return `<section class="step" id="step-${s.key}" data-idx="${idx}" aria-label="${s.num} ${s.title}">
+    <div class="step-head">
+      <span class="letter">${s.key}</span>
+      <span class="hgroup">
+        <span class="en">${s.num}　${s.en}</span>
+        <h2>${s.title}</h2>
+      </span>
+      <p class="lead">${s.lead}</p>
+    </div>
+    <div class="panels">
+      <div class="panel panel-inner">
+        <div class="side">${esc(s.inner.side)}</div>
+        <h3>【${s.inner.head}】</h3>
+        <p class="psub">${s.inner.sub}</p>
+        ${s.inner.star ? `<p class="starnote">${s.inner.star}</p>`:""}
+        ${s.inner.chips ? chipsHTML(s.inner.chips):""}
+        ${s.inner.fields.map(fieldHTML).join("")}
+      </div>
+      <div class="panel panel-fact">
+        <div class="side">${esc(s.fact.side)}</div>
+        <h3>【${s.fact.head}】</h3>
+        <p class="psub">${s.fact.sub}</p>
+        ${s.fact.fields.map(fieldHTML).join("")}
+      </div>
+    </div>
+    <div class="helper" data-step="${s.key}">
+      <h4>SBIOR 小幫手</h4>
+      <p class="note">小幫手只會針對這一步驟，回問您三個往下深潛的問題，不會替您寫下任何內容。溫度、脈絡與關鍵理解，只有您能賦予。</p>
+      <button class="btn btn-sm" data-ask="${s.key}">請小幫手提問</button>
+      <div class="helper-out" id="out-${s.key}" aria-live="polite"></div>
+    </div>
+    <div class="stepnav">
+      <button class="btn" data-go="${idx-1}" ${idx===0?"disabled":""}>上一步</button>
+      <button class="btn btn-primary" data-go="${idx+1}">${idx===STEPS.length-1?"前往總結":"下一步"}</button>
+    </div>
+  </section>`;
+}
+
+document.getElementById("steps").innerHTML = STEPS.map(stepHTML).join("");
+
+// 深度導覽
+const rail = document.getElementById("rail");
+STEPS.forEach((s,i)=>{
+  const li = document.createElement("li");
+  li.className = "rail-item";
+  li.dataset.idx = i;
+  li.innerHTML = `<span class="dot"></span>
+    <button class="rail-btn" data-go="${i}">
+      <span class="rail-letter">${s.key}</span>
+      <span class="rail-name">${s.title}</span>
+      <span class="rail-depth">${s.depth}</span>
+    </button>`;
+  rail.appendChild(li);
+  if(i===0){
+    const w = document.createElement("li");
+    w.className = "rail-water";
+    w.innerHTML = "<span>水平面</span>";
+    rail.appendChild(w);
+  }
+});
+const liSum = document.createElement("li");
+liSum.className = "rail-item";
+liSum.dataset.idx = 5;
+liSum.innerHTML = `<span class="dot"></span>
+  <button class="rail-btn" data-go="5"><span class="rail-letter">＋</span><span class="rail-name">總結與收穫</span><span class="rail-depth">浮出水面</span></button>`;
+rail.appendChild(liSum);
+
+// SEL 按鈕
+const selGrid = document.getElementById("selGrid");
+SEL.forEach(name=>{
+  const b = document.createElement("button");
+  b.className = "sel"; b.type = "button"; b.textContent = name;
+  b.setAttribute("aria-pressed","false");
+  b.addEventListener("click", ()=>{
+    const on = b.getAttribute("aria-pressed")==="true";
+    b.setAttribute("aria-pressed", on?"false":"true");
+    queueSave();
+  });
+  selGrid.appendChild(b);
+});
+
+/* ================= 切換步驟 ================= */
+function show(idx){
+  idx = Math.max(0, Math.min(5, idx));
+  state.current = idx;
+  document.querySelectorAll(".step").forEach(el=>{
+    el.classList.toggle("active", Number(el.dataset.idx)===idx);
+  });
+  document.getElementById("summarySection").style.display = idx===5 ? "block" : "none";
+  document.body.dataset.stage = String(idx);
+  document.querySelectorAll(".rail-item").forEach(li=>{
+    const i = Number(li.dataset.idx);
+    li.dataset.state = i===idx ? "current" : (i<idx ? "done" : "todo");
+  });
+  const fill = document.getElementById("railFill");
+  const items = [...document.querySelectorAll(".rail-item")];
+  if(fill && items.length && items[0].offsetParent){
+    const first = items[0].offsetTop, cur = items[Math.min(idx,items.length-1)].offsetTop;
+    fill.style.height = Math.max(0, cur - first) + "px";
+  }
+  window.scrollTo({top: Math.max(0, document.querySelector(".shell").offsetTop - 20)});
+}
+document.getElementById("summarySection").style.display = "none";
+show(0);
+
+document.addEventListener("click", e=>{
+  const go = e.target.closest("[data-go]");
+  if(go){ show(Number(go.dataset.go)); return; }
+  const tab = e.target.closest(".mood-tab");
+  if(tab){
+    const wrap = tab.closest(".mood");
+    wrap.querySelectorAll(".mood-tab").forEach(t=>t.setAttribute("aria-selected", t===tab ? "true" : "false"));
+    wrap.querySelectorAll(".mood-panel").forEach(p=>p.classList.toggle("on", p.dataset.q===tab.dataset.q));
+    return;
+  }
+  const chip = e.target.closest(".chip");
+  if(chip){ insertWord(chip.dataset.word, chip); return; }
+});
+document.getElementById("backToR").addEventListener("click", ()=>show(4));
+
+/* 詞彙插入：優先送到同一面板中最近一次聚焦的欄位 */
+let lastInner = null;
+document.addEventListener("focusin", e=>{
+  if(e.target.tagName==="TEXTAREA" && e.target.closest(".panel-inner")) lastInner = e.target;
+});
+function insertWord(word, chip){
+  const panel = chip.closest(".panel-inner");
+  let target = (lastInner && panel.contains(lastInner)) ? lastInner : panel.querySelector("textarea");
+  if(!target) return;
+  const v = target.value.trim();
+  target.value = v ? (v.endsWith("、")||v.endsWith("，") ? v + word : v + "、" + word) : word;
+  target.focus();
+  target.dispatchEvent(new Event("input", {bubbles:true}));
+}
+
+/* ================= 輸入與儲存 ================= */
+const saveState = document.getElementById("saveState");
+let saveTimer = null;
+
+function autogrow(t){ t.style.height = "auto"; t.style.height = Math.max(76, t.scrollHeight + 4) + "px"; }
+
+document.addEventListener("input", e=>{
+  const t = e.target;
+  if(t.tagName==="TEXTAREA"){ autogrow(t); }
+  if(t.dataset.fid){ state.data[t.dataset.fid] = t.value; }
+  if(t.id==="eventTitle"){ state.data.__event = t.value; }
+  if(t.id==="summaryText"){ state.data.__summary = t.value; }
+  updateCount();
+  queueSave();
+});
+
+function updateCount(){
+  const n = ALL_IDS.filter(id => (state.data[id]||"").trim().length>0).length;
+  document.getElementById("doneCount").textContent = n;
+}
+
+function queueSave(){
+  saveState.textContent = "輸入中";
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(save, 900);
+}
+
+async function save(){
+  state.sel = [...selGrid.children].filter(c=>c.getAttribute("aria-pressed")==="true").map(c=>c.textContent);
+  const payload = JSON.stringify({data:state.data, sel:state.sel, at:Date.now()});
+  try{
+    if(window.storage && window.storage.set){
+      await window.storage.set("sbior:draft", payload);
+      const d = new Date();
+      saveState.textContent = "已儲存　" + String(d.getHours()).padStart(2,"0") + ":" + String(d.getMinutes()).padStart(2,"0");
+      return;
+    }
+    throw new Error("no storage");
+  }catch(err){
+    saveState.textContent = "僅暫存於本頁，請記得下載";
+  }
+}
+
+async function load(){
+  try{
+    if(!(window.storage && window.storage.get)) return;
+    const r = await window.storage.get("sbior:draft");
+    if(!r || !r.value) return;
+    const obj = JSON.parse(r.value);
+    state.data = obj.data || {};
+    ALL_IDS.forEach(id=>{
+      const el = document.getElementById(id);
+      if(el && state.data[id]){ el.value = state.data[id]; autogrow(el); }
+    });
+    if(state.data.__event) document.getElementById("eventTitle").value = state.data.__event;
+    if(state.data.__summary){ const s=document.getElementById("summaryText"); s.value = state.data.__summary; autogrow(s); }
+    (obj.sel||[]).forEach(name=>{
+      const b = [...selGrid.children].find(c=>c.textContent===name);
+      if(b) b.setAttribute("aria-pressed","true");
+    });
+    updateCount();
+    saveState.textContent = "已載入上次的草稿";
+  }catch(err){ /* 沒有草稿就從頭開始 */ }
+}
+load();
+
+/* ================= 匯出 ================= */
+function buildText(){
+  const L = [];
+  L.push("潛入內在冰山｜SBIOR 深度反思與專業成長學習單");
+  L.push("我想要反思的事件是：" + (state.data.__event || "（未填寫）"));
+  L.push("");
+  STEPS.forEach(s=>{
+    L.push("──────────────────────────────");
+    L.push(`${s.num}　${s.key}　${s.title}（${s.en}）`);
+    L.push(s.lead);
+    L.push("");
+    L.push(`【${s.fact.head}】${s.fact.sub}　右手欄．事實與外顯行為`);
+    s.fact.fields.forEach(f=>{
+      L.push(`・${f.label}：`);
+      L.push("  " + ((state.data[f.id]||"").trim() || "（未填寫）"));
+    });
+    L.push("");
+    L.push(`【${s.inner.head}】${s.inner.sub}　左手欄．我的經驗與內在歷程`);
+    s.inner.fields.forEach(f=>{
+      L.push(`・${f.label}：`);
+      L.push("  " + ((state.data[f.id]||"").trim() || "（未填寫）"));
+    });
+    L.push("");
+  });
+  L.push("──────────────────────────────");
+  L.push("總結與收穫");
+  L.push("・最想帶回教學現場的 SEL 核心能力：" + (state.sel.length? state.sel.join("、") : "（未選擇）"));
+  L.push("・我最大的發現與學習是：");
+  L.push("  " + ((state.data.__summary||"").trim() || "（未填寫）"));
+  L.push("");
+  L.push("課程設計：國立臺灣師範大學陳佩英教授計畫團隊．愛思客團隊　幸福 O3 課程系列");
+  return L.join("\n");
+}
+
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"), 2200);
+}
+
+document.getElementById("btnCopy").addEventListener("click", async ()=>{
+  const text = buildText();
+  try{
+    await navigator.clipboard.writeText(text);
+    toast("已複製，可以直接貼到小組共編文件");
+  }catch(err){
+    const ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); toast("已複製，可以直接貼到小組共編文件"); }
+    catch(e2){ toast("這個瀏覽器不支援複製，請改用下載文字檔"); }
+    ta.remove();
+  }
+});
+
+document.getElementById("btnDownload").addEventListener("click", ()=>{
+  const name = (state.data.__event || "SBIOR學習單").slice(0,20).replace(/[\\/:*?"<>|]/g,"");
+  const blob = new Blob(["\ufeff" + buildText()], {type:"text/plain;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = name + ".txt";
+  a.click();
+  URL.revokeObjectURL(a.href);
+  toast("已下載");
+});
+
+document.getElementById("btnPrint").addEventListener("click", ()=>window.print());
+
+document.getElementById("btnClear").addEventListener("click", async ()=>{
+  if(!confirm("清空後無法復原，確定要重新開始嗎？建議先下載文字檔。")) return;
+  state.data = {}; state.sel = [];
+  document.querySelectorAll("textarea").forEach(t=>{ t.value=""; t.style.height="auto"; });
+  document.getElementById("eventTitle").value = "";
+  [...selGrid.children].forEach(c=>c.setAttribute("aria-pressed","false"));
+  updateCount();
+  try{ if(window.storage && window.storage.delete) await window.storage.delete("sbior:draft"); }catch(e){}
+  saveState.textContent = "已清空";
+  show(0);
+});
+
+/* ================= SBIOR 小幫手 ================= */
+document.addEventListener("click", async e=>{
+  const btn = e.target.closest("[data-ask]");
+  if(!btn) return;
+  const key = btn.dataset.ask;
+  const step = STEPS.find(s=>s.key===key);
+  const out = document.getElementById("out-" + key);
+
+  const filled = [...step.fact.fields, ...step.inner.fields]
+    .map(f=>`${f.label}：${(state.data[f.id]||"").trim() || "（未填寫）"}`).join("\n");
+
+  if([...step.fact.fields, ...step.inner.fields].every(f=>!(state.data[f.id]||"").trim())){
+    out.textContent = "這一步驟還沒有內容。先寫下一點點，小幫手才知道要往哪裡問。";
+    return;
+  }
+
+  btn.disabled = true;
+  out.innerHTML = '<span class="spin"></span>小幫手正在讀您寫的內容';
+
+  const prompt =
+`你是「SBIOR 小幫手」，協助臺灣中小學教師做薩提爾冰山式的自我反思。
+
+反思架構是 SBIOR：情境與理解、行為與感受、影響與意圖、選項與重評、結果與修復。
+教師目前在「${step.num} ${step.key} ${step.title}」，這一步驟的目的是：${step.lead}
+
+教師反思的事件：${state.data.__event || "（未填寫）"}
+教師在這一步驟寫下的內容：
+${filled}
+
+請你做兩件事，全部使用臺灣慣用的繁體中文，語氣溫和、專業、不評價：
+一、先用一到兩句話回應你在這些文字裡看見的東西，只描述，不下判斷，不安慰。
+二、接著提出三個能幫助這位教師往冰山下一層深潛的問題，每個問題一行，前面用 1. 2. 3. 標示。問題要具體扣住教師寫的內容，不要泛泛而問。
+如果教師在「事實」欄裡混入了形容詞或推論，可以溫和地指出來，邀請他重新用攝影機的角度描述。
+
+重要限制：不要替教師寫出任何反思內容，不要提供答案或建議做法，只提問。全文不超過三百字，不要使用破折號與冒號以外的裝飾符號，不要用 Markdown 標題。`;
+
+  try{
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({
+        model:"claude-sonnet-4-6",
+        max_tokens:1000,
+        messages:[{role:"user", content:prompt}]
+      })
+    });
+    if(!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    const text = (data.content||[]).filter(b=>b.type==="text").map(b=>b.text).join("\n").trim();
+    out.textContent = text || "小幫手這次沒有回應，請再按一次。";
+  }catch(err){
+    out.textContent = "小幫手現在連不上。這一格可以先跳過，您的內容都還在。若想自己往下問，可以試著問自己：這件事裡，我最不希望發生的是什麼？";
+  }finally{
+    btn.disabled = false;
+  }
+});
+
+/* 鍵盤：Alt + 左右切換步驟 */
+document.addEventListener("keydown", e=>{
+  if(!e.altKey) return;
+  if(e.key==="ArrowRight"){ show(state.current+1); }
+  if(e.key==="ArrowLeft"){ show(state.current-1); }
+});
+</script>
+</body>
+</html>

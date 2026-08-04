@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>潛入內在冰山｜SBIOR 教師版深度反思學習單</title>
+<meta name="description" content="SBIOR 教師版深度反思學習單。回顧一個困擾的溝通事件，逐層潛入內在冰山，看見情緒下的信念。">
+<meta property="og:title" content="潛入內在冰山｜SBIOR 教師版">
+<meta property="og:description" content="看見情緒下的信念，從事件走向成長。">
+<meta property="og:locale" content="zh_TW">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23061726'/%3E%3Cpath d='M16 5l6 10H10z' fill='%23EAF4F8'/%3E%3Cpath d='M9 16h14l3 6-3 5-7 3-6-4-2-6z' fill='%236FD6C4' opacity='.75'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --abyss:#061726;
+  --deep1:#0C3550;
+  --deep2:#134A6B;
+  --mid:#1B6A90;
+  --glacier:#6FD6C4;
+  --ice:#DCEAF1;
+  --foam:#F1F7FA;
+  --paper:#FBF7EF;
+  --paper-line:#E4DACB;
+  --ink:#0B2231;
+  --ink-soft:#4A6274;
+  --ink-mute:#8AA6B7;
+  --line:#CFE0E8;
+  --dawn:#E8974A;
+  --shadow:0 1px 2px rgba(11,34,49,.06),0 8px 28px rgba(11,34,49,.08);
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--foam);color:var(--ink);font-family:var(--sans);line-height:1.78;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+/* ── header ── */
+header.top{background:linear-gradient(180deg,#0C3550 0%,#134A6B 60%,#1B6A90 100%);color:#fff;position:relative;overflow:hidden}
+header.top .wrap{padding:34px 22px 32px;position:relative;z-index:2}
+header.top h1{font-family:var(--serif);font-size:clamp(26px,3.6vw,33px);margin:0;letter-spacing:.05em;font-weight:900}
+header.top .sub{font-size:14.5px;color:#A9C6D6;margin:9px 0 0;max-width:44em}
+header.top .eyebrow{font-size:12px;letter-spacing:.3em;color:#8FBACE;margin:0 0 10px}
+.badge{display:inline-block;background:var(--glacier);color:var(--abyss);border-radius:3px;padding:3px 12px;font-size:12.5px;font-weight:700;letter-spacing:.08em;margin:0 0 12px}
+.waves{position:absolute;left:0;right:0;bottom:-1px;height:26px;opacity:.55}
+
+/* ── tabs ── */
+nav.tabs{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+nav.tabs .wrap{display:flex;gap:2px;padding:0 22px;overflow-x:auto;scrollbar-width:none;align-items:center}
+nav.tabs .wrap::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:0;background:transparent;font-family:var(--sans);font-size:14.5px;color:var(--ink-soft);
+  padding:13px 13px 10px;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+.tab:hover{color:var(--ink)}
+.tab.on{color:var(--deep1);border-bottom-color:var(--dawn);font-weight:700}
+.tab:focus-visible{outline:2.5px solid var(--mid);outline-offset:-3px}
+.tab .num{font-family:var(--serif);font-size:12px;color:var(--ink-mute);margin-right:5px}
+.tab.on .num{color:var(--dawn)}
+.tab.done .num::after{content:"✓";margin-left:3px;color:var(--mid)}
+.save-state{flex:0 0 auto;margin-left:auto;padding-left:18px;font-size:12.5px;color:var(--ink-soft);white-space:nowrap}
+
+main{padding:26px 0 70px}
+section.page{display:none}
+section.page.on{display:block;animation:rise .45s cubic-bezier(.2,.7,.3,1)}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.card{background:#fff;border-radius:4px;box-shadow:var(--shadow);padding:28px 30px 26px}
+.card+.card{margin-top:20px}
+h2.sec{font-family:var(--serif);margin:0 0 8px;font-size:21px;font-weight:700;letter-spacing:.03em}
+
+/* ── intro ── */
+.lede{font-size:15.5px;color:var(--ink-soft);max-width:46em;margin:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0 4px;border-radius:4px;overflow:hidden;box-shadow:var(--shadow)}
+.hand{padding:18px 20px}
+.hand.f{background:var(--paper)}
+.hand.i{background:linear-gradient(165deg,#134A6B 0%,#0C3550 60%,#082639 100%)}
+.hand h4{margin:0 0 6px;font-size:14.5px;font-family:var(--serif);font-weight:700;letter-spacing:.05em}
+.hand.f h4{color:#8A6A3C}
+.hand.i h4{color:var(--glacier)}
+.hand.f p{margin:0;font-size:14px;color:var(--ink-soft)}
+.hand.i p{margin:0;font-size:14px;color:#B7D5E4}
+.safety{border-left:4px solid var(--dawn);background:#FDF6EE;border-radius:3px;padding:14px 18px;font-size:14.5px;color:#7D4B21;margin-top:18px}
+.topic{margin-top:22px}
+.topic label{display:block;font-size:12px;letter-spacing:.2em;color:var(--mid);margin-bottom:8px;font-weight:500}
+.topic input{width:100%;border:none;border-bottom:2px solid var(--paper-line);background:transparent;
+  font-family:var(--serif);font-size:19px;font-weight:500;color:var(--ink);padding:6px 2px}
+.topic input:focus{outline:none;border-bottom-color:var(--mid)}
+.topic input::placeholder{color:#B9C6CE;font-weight:400;font-family:var(--sans);font-size:15px}
+
+/* ── step ── */
+.step-head{display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:4px}
+.step-head .letter{font-family:var(--serif);font-size:52px;line-height:.9;color:var(--deep2);font-weight:900;letter-spacing:.06em}
+.step-head h2{font-family:var(--serif);font-size:23px;margin:0;font-weight:700;letter-spacing:.03em}
+.step-head .en{font-size:12.5px;color:var(--mid);letter-spacing:.16em;display:block}
+.step-head .lead{font-size:14.5px;color:var(--ink-soft);margin:7px 0 0}
+.berg-tag{margin-left:auto;background:rgba(111,214,196,.18);color:var(--deep2);border-radius:3px;padding:6px 14px;
+  font-size:12.5px;font-weight:500;white-space:nowrap}
+.order-hint{font-size:13px;color:var(--ink-mute);margin:16px 0 12px}
+
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:4px;overflow:hidden;box-shadow:var(--shadow)}
+.col{padding:22px 22px 8px}
+.col.inner{background:linear-gradient(165deg,#134A6B 0%,#0C3550 55%,#082639 100%);color:#DCEAF1}
+.col.fact{background:var(--paper);color:var(--ink)}
+.col .cap{font-size:11px;letter-spacing:.24em;margin:0 0 3px;font-weight:500}
+.col.inner .cap{color:var(--glacier)}
+.col.fact .cap{color:#B08A55}
+.col h3{font-family:var(--serif);font-size:16.5px;margin:0 0 3px;font-weight:700;letter-spacing:.04em}
+.col .csub{font-size:13px;margin:0 0 18px}
+.col.inner .csub{color:#9FC4D6}
+.col.fact .csub{color:var(--ink-soft)}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:14px;font-weight:500;margin-bottom:3px}
+.field .q{font-size:12.5px;margin:0 0 7px;line-height:1.65}
+.col.inner .field .q{color:#8FB4C8}
+.col.fact .field .q{color:#96866F}
+textarea{width:100%;min-height:88px;resize:vertical;border-radius:3px;padding:11px 13px;
+  font-family:var(--sans);font-size:15px;line-height:1.8;transition:border-color .2s,box-shadow .2s}
+.col.inner textarea{background:rgba(255,255,255,.07);border:1.5px solid rgba(160,200,220,.3);color:#EAF4F8}
+.col.inner textarea:focus{outline:none;border-color:var(--glacier);box-shadow:0 0 0 3px rgba(111,214,196,.2);background:rgba(255,255,255,.12)}
+.col.fact textarea{background:#fff;border:1.5px solid var(--paper-line);color:var(--ink)}
+.col.fact textarea:focus{outline:none;border-color:var(--mid);box-shadow:0 0 0 3px rgba(27,106,144,.14)}
+.star{border-left:2px solid var(--glacier);padding:2px 0 2px 12px;font-size:13px;color:#9FC4D6;margin:-2px 0 12px;line-height:1.7}
+
+/* ── 詞彙 ── */
+.chips{margin:-2px 0 10px}
+.chips-label{font-size:12px;color:#8FB4C8;margin-bottom:8px;letter-spacing:.1em}
+.chip{font-family:var(--sans);font-size:12.5px;cursor:pointer;border-radius:20px;padding:3px 11px;margin:0 6px 6px 0;transition:all .18s;
+  background:rgba(111,214,196,.12);border:1px solid rgba(111,214,196,.35);color:#BDE9DE}
+.chip:hover{background:rgba(111,214,196,.26);color:#fff}
+.chip:focus-visible{outline:2.5px solid var(--glacier);outline-offset:2px}
+.mood{margin:-2px 0 12px}
+.mood-note{font-size:12px;color:#8FB4C8;margin-bottom:9px;letter-spacing:.06em;line-height:1.7}
+.mood-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:11px}
+.mood-tab{font-family:var(--sans);font-size:12.5px;cursor:pointer;border-radius:3px;padding:5px 11px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(160,200,220,.26);color:#9FC4D6;
+  display:inline-flex;align-items:center;gap:7px;transition:all .18s}
+.mood-tab .sw{width:9px;height:9px;border-radius:2px;flex:0 0 auto}
+.mood-tab:hover{background:rgba(255,255,255,.12);color:#EAF4F8}
+.mood-tab[aria-selected="true"]{background:rgba(255,255,255,.16);color:#fff;border-color:rgba(160,200,220,.62)}
+.mood-tab:focus-visible{outline:2.5px solid var(--glacier);outline-offset:2px}
+.mood-panel{display:none}
+.mood-panel.on{display:block}
+.chip.q-red{background:rgba(233,160,160,.13);border-color:rgba(233,160,160,.38);color:#F1B6B6}
+.chip.q-red:hover{background:rgba(233,160,160,.28);color:#fff}
+.chip.q-yellow{background:rgba(239,206,147,.13);border-color:rgba(239,206,147,.38);color:#F2D8A6}
+.chip.q-yellow:hover{background:rgba(239,206,147,.28);color:#fff}
+.chip.q-blue{background:rgba(169,198,236,.13);border-color:rgba(169,198,236,.38);color:#BFD6F2}
+.chip.q-blue:hover{background:rgba(169,198,236,.28);color:#fff}
+.chip.q-green{background:rgba(155,220,187,.13);border-color:rgba(155,220,187,.38);color:#AFE4C8}
+.chip.q-green:hover{background:rgba(155,220,187,.28);color:#fff}
+.chip.q-extra{background:rgba(195,214,224,.12);border-color:rgba(195,214,224,.34);color:#CBDCE6}
+.chip.q-extra:hover{background:rgba(195,214,224,.26);color:#fff}
+
+/* ── 按鈕 ── */
+.nav-row{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap;align-items:center}
+button.btn,a.btn{border:1.5px solid var(--deep1);background:var(--deep1);color:#fff;border-radius:3px;padding:10px 20px;
+  font-family:var(--sans);font-size:14.5px;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+button.btn:hover{background:var(--abyss);border-color:var(--abyss)}
+button.btn.ghost{background:transparent;color:var(--deep1);border-color:var(--deep2)}
+button.btn.ghost:hover{background:var(--deep2);color:#fff}
+button.btn.warm{background:var(--dawn);border-color:var(--dawn)}
+button.btn.warm:hover{background:#D4832F;border-color:#D4832F}
+button.btn:focus-visible{outline:2.5px solid var(--mid);outline-offset:3px}
+.spacer{margin-left:auto}
+.note-small{font-size:13px;color:var(--ink-soft);margin-top:16px;line-height:1.8}
+
+/* ── 冰山 ── */
+.berg-row{display:grid;grid-template-columns:360px 1fr;gap:30px;align-items:start}
+.berg-legend h3{font-family:var(--serif);font-size:19px;margin:0 0 6px;font-weight:700}
+.berg-legend p{font-size:14.5px;color:var(--ink-soft);margin:0 0 18px}
+.layer{border-left:3px solid var(--line);padding:8px 0 8px 14px;margin-bottom:6px;transition:border-color .3s}
+.layer.filled{border-left-color:var(--mid)}
+.layer b{font-size:14.5px;display:block;font-weight:500}
+.layer span{font-size:13px;color:var(--ink-mute)}
+.layer.filled span{color:var(--ink-soft)}
+svg.berg{width:100%;height:auto;display:block}
+svg.berg .band{fill:#D3E3EB;stroke:#fff;stroke-width:1.5;transition:fill .35s}
+svg.berg .band.above{fill:#F4FAFC;stroke:#C6D9E3}
+svg.berg .band.above.filled{fill:#FFFFFF;stroke:#9DBECD}
+svg.berg .band.filled{fill:#7FB6CE}
+svg.berg .band.deep.filled{fill:#1B6A90}
+svg.berg text{font-family:var(--sans);font-size:13px;fill:var(--ink);font-weight:500}
+svg.berg text.wl{font-size:11px;fill:var(--mid);letter-spacing:.2em}
+
+/* ── 總結 ── */
+.sum-block{border:1px solid var(--line);border-radius:4px;padding:16px 19px;margin-bottom:12px}
+.sum-block h3{margin:0 0 10px;font-size:16px;font-family:var(--serif);font-weight:700}
+.sum-block h3 em{font-style:normal;color:var(--ink-mute);font-size:12px;margin-left:8px;letter-spacing:.08em}
+.sum-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sum-side .side-cap{font-size:11px;letter-spacing:.18em;margin:0 0 6px;font-weight:500}
+.sum-side.f .side-cap{color:#B08A55}
+.sum-side.i .side-cap{color:var(--mid)}
+.sum-side p.k{font-size:12.5px;color:var(--ink-mute);margin:8px 0 1px}
+.sum-side p.v{margin:0;white-space:pre-wrap;font-size:14.5px;color:var(--ink-soft)}
+.sum-block>p.v{margin:0;white-space:pre-wrap;font-size:15px;color:var(--ink-soft)}
+.sum-side p.v.empty{color:#C3CCD2}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(18px);background:var(--abyss);color:#EAF4F8;
+  padding:11px 22px;border-radius:3px;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:60}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+footer.foot{border-top:1px solid var(--line);color:var(--ink-soft);font-size:12px;padding:22px 0 44px;line-height:1.9}
+
+@media(max-width:860px){
+  .cols,.two,.sum-two{grid-template-columns:1fr}
+  .berg-row{grid-template-columns:1fr}
+  .col.fact,.hand.f{order:-1}
+  .berg-tag{margin-left:0}
+  .save-state{display:none}
+  .card{padding:22px 18px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+@media print{
+  body{background:#fff}
+  header.top,nav.tabs,.nav-row,.chips,.mood,footer.foot,.no-print{display:none!important}
+  section.page{display:none!important}
+  section#print-area{display:block!important}
+  .card{box-shadow:none;border:0;padding:0}
+  .sum-block{break-inside:avoid;border-color:#ccc}
+}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <span class="badge">教師版　自我反思用</span>
+  <p class="eyebrow">S B I O R</p>
+  <h1>潛入內在冰山</h1>
+  <p class="sub">深度反思與專業成長學習單。回顧一個近期讓你困擾或結果不滿意的溝通事件，看見情緒下的信念，從事件走向成長。與學生談話請使用「品格微時刻」學生版。</p>
+</div>
+<svg class="waves" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0,18 C150,4 300,30 450,16 C600,2 750,26 900,14 C1050,3 1150,20 1200,14 L1200,26 L0,26 Z" fill="#F1F7FA"/>
+</svg>
+</header>
+
+<nav class="tabs"><div class="wrap" id="tabs"></div></nav>
+
+<main><div class="wrap">
+
+<section class="page on" id="page-0">
+  <div class="card">
+    <h2 class="sec">開始之前</h2>
+    <p class="lede">這是一份你與自己的對話工具。它會帶你逐格拼出外在的理解與行動，以及內在的覺察與成長。五個欄位完成時，也就走完了從事件到反思、從感受到行動的整段旅程。</p>
+    <div class="two">
+      <div class="hand i"><h4>左手欄　後設</h4><p>請誠實記錄內心的感受、想法、詮釋與判斷。這些通常沒有說出口，卻是真正驅動行為的力量。</p></div>
+      <div class="hand f"><h4>右手欄　事實</h4><p>請扮演一部攝影機，只記錄事實。看得到、聽得到，不帶形容詞。</p></div>
+    </div>
+    <div class="safety">沒有對錯之分，請全然誠實地記錄。過程中可能會觸發一些情緒，請溫柔地對待自己，需要的話隨時停下來。</div>
+    <div class="topic">
+      <label for="topic">我想要反思的事件是</label>
+      <input id="topic" placeholder="例如：週三領域會議上，我和某位同事對課程進度的爭執">
+    </div>
+    <div class="nav-row"><button class="btn warm" data-go="1">開始第一步　情境與理解</button></div>
+    <p class="note-small">你填寫的內容只留在這台裝置的瀏覽器裡，不會上傳，關掉分頁再回來會自動接續。換裝置時請用總結頁的備份功能。</p>
+  </div>
+</section>
+
+<div id="steps"></div>
+
+<section class="page" id="page-6">
+  <div class="card">
+    <div class="berg-row">
+      <div id="bergWrap"></div>
+      <div class="berg-legend">
+        <h3>我的冰山</h3>
+        <p>水面上的是行為，水面下的才是行為真正的來源。你填寫的內容會讓對應的層次逐一浮現，這座冰山也就變成你自己的。</p>
+        <div id="layers"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 class="sec">總結與收穫</h2>
+    <p style="font-size:13.5px;color:var(--ink-soft);margin:0 0 12px">完成這份學習單後，我最大的發現與學習是。可以寫字、畫圖、寫詩，任何形式都可以。</p>
+    <textarea id="final" style="min-height:150px" placeholder="我發現……"></textarea>
+    <div class="nav-row no-print">
+      <button class="btn" id="btn-copy">複製全部文字</button>
+      <button class="btn ghost" id="btn-download">下載成文字檔</button>
+      <button class="btn ghost" id="btn-print">列印成學習單</button>
+      <button class="btn ghost" id="btn-backup">下載備份檔</button>
+      <button class="btn ghost" id="btn-restore">讀取備份檔</button>
+      <input type="file" id="file-restore" accept=".json,application/json" hidden>
+      <button class="btn ghost spacer" id="btn-clear">清空重來</button>
+    </div>
+    <p class="note-small no-print">自動暫存　<b id="saveInline" style="font-weight:500;color:var(--deep1)">尚未開始</b>。內容只存在這台裝置，換電腦或手機時請用下載備份檔與讀取備份檔接續。</p>
+  </div>
+
+  <div class="card">
+    <h2 class="sec">完整內容</h2>
+    <div id="summary"></div>
+  </div>
+</section>
+
+<section id="print-area" style="display:none"></section>
+
+</div></main>
+
+<footer class="foot"><div class="wrap">
+  潛入內在冰山　SBIOR 深度反思與專業成長學習單　教師版<br>
+  課程設計｜國立臺灣師範大學陳佩英教授計畫團隊．愛思客團隊　幸福 O3 課程系列<br>
+  理論參照｜薩提爾冰山理論，李崇建（2017）《薩提爾的對話練習》　　合作洽詢｜ho3team2025@gmail.com
+</div></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ══════════ 詞彙 ══════════ */
+const MOOD=[
+ {k:"red",label:"高活力 · 低愉悅",sw:"#E9A0A0",words:[
+  "憤怒的","驚慌失措的","壓力很大的","緊張不安的","震驚的",
+  "暴怒的","氣沖沖的","沮喪的","神經緊繃的","錯愕的",
+  "火冒三丈的","受到驚嚇的","生氣的","緊張的","坐立難安的",
+  "焦慮的","焦慮不安的","擔心的","被激怒的","被惹惱的",
+  "反感的","困擾的","在意的","忐忑不安的","不太高興的"]},
+ {k:"yellow",label:"高活力 · 高愉悅",sw:"#EFCE93",words:[
+  "驚喜的","振奮的","歡慶的","心花怒放的","欣喜若狂的",
+  "亢奮的","愉悅的","有動力的","受到啟發的","興高采烈的",
+  "精力充沛的","生氣勃勃的","興奮的","樂觀的","熱情洋溢的",
+  "開心的","集中的","快樂的","驕傲的","興奮激動的",
+  "令人愉快的","欣喜的","有希望的","好玩的","幸福的"]},
+ {k:"blue",label:"低活力 · 低愉悅",sw:"#A9C6EC",words:[
+  "厭惡的","死氣沉沉的","失望的","低落的","提不起勁的",
+  "悲觀的","鬱鬱寡歡的","洩氣的","難過的","無聊的",
+  "疏離的","悲慘的","孤單的","心灰意冷的","疲累的",
+  "消沉的","抑鬱的","悶悶不樂的","精疲力盡的","疲勞的",
+  "絕望的","無望的","孤寂的","疲憊不堪的","被榨乾的"]},
+ {k:"green",label:"低活力 · 高愉悅",sw:"#9BDCBB",words:[
+  "自在的","隨和的","知足的","充滿愛的","心滿意足的",
+  "平靜的","安全的","滿意的","滿懷感謝的","感動的",
+  "放鬆的","冷靜的","寧靜的","有福氣的","平衡的",
+  "柔和的","考慮周到的","平和的","舒服的","無憂無慮的",
+  "昏昏欲睡的","自鳴得意的","靜謐的","舒適的","安詳的"]},
+ {k:"extra",label:"學習單常用",sw:"#C3D6E0",words:[
+  "委屈的","被誤解的","無助的","挫折的","羞愧的","內疚的",
+  "失落的","心疼的","尷尬的","不甘的","矛盾的","被冒犯的"]}
+];
+const WANT=["被理解","被尊重","被接納","被看見","被信任","歸屬感","安全感","價值感","公平","自由","意義","連結","勝任"];
+
+/* ══════════ 步驟 ══════════ */
+const STEPS=[
+{k:"S",zh:"情境與理解",en:"Situation & Understanding",
+ lead:"探索事件的開端，區分事實與我的第一反應。",berg:"感受與觀點",
+ fact:{cap:"情境",title:"可觀察到的事實與外顯行為",sub:"事件可觀察到的要素",fields:[
+   {id:"s_who",label:"人事時地物",q:"當時有哪些人參與？發生的具體時間與地點是？"},
+   {id:"s_fact",label:"事實",q:"如果用錄影機拍下來，會看到、聽到什麼？不帶任何形容詞。"}]},
+ inner:{cap:"理解",title:"我的主觀經驗與內在歷程",sub:"我的初步詮釋",fields:[
+   {id:"s_emo",label:"當下情緒",q:"我當時感覺到哪些情緒？",chips:"emo"},
+   {id:"s_first",label:"第一念頭",q:"我腦中閃過的第一個想法是什麼？"},
+   {id:"s_read",label:"我的解讀",q:"我覺得對方是什麼意思？這整件事對我來說意味著什麼？"}]}},
+
+{k:"B",zh:"行為與感受",en:"Behavior & Feelings",
+ lead:"深入覺察自己與他人的言行，以及這些言行背後更深層的感受。",berg:"感受、對感受的感受",
+ fact:{cap:"行為",title:"事實與外顯行為",sub:"具體的言行舉止",fields:[
+   {id:"b_me",label:"我的言行",q:"我具體說了什麼？做了什麼？"},
+   {id:"b_other",label:"對方的言行",q:"對方具體說了什麼？做了什麼？"},
+   {id:"b_non",label:"非語言訊息",q:"過程中是否有明顯的表情、音調或肢體動作？"}]},
+ inner:{cap:"感受",title:"我的經驗與內在歷程",sub:"行為背後的情感",fields:[
+   {id:"b_feel",label:"我的內心感受",q:"當我選擇那樣回應時，內心真正的感受是什麼？",chips:"emo"},
+   {id:"b_meta",label:"對感受的感受，以及它從哪裡來",q:"對於自己有這樣的感受，我又有什麼樣的看法或感覺？"}]}},
+
+{k:"I",zh:"影響與意圖",en:"Impact & Intent",
+ lead:"反思事件帶來的具體結果，並檢視我是如何形成我的結論的。",berg:"觀點與推論",
+ fact:{cap:"影響",title:"事實與外顯行為",sub:"可觀察到的結果",fields:[
+   {id:"i_other",label:"對他人的影響",q:"我的言行對他人產生了什麼可觀察的影響？"},
+   {id:"i_res",label:"事件結果",q:"這件事的結果是什麼？"},
+   {id:"i_gap",label:"預期落差",q:"這個結果哪些部分超出我的預期？"}]},
+ inner:{cap:"意圖與推論",title:"我的經驗與內在歷程",sub:"我如何詮釋這個結果",fields:[
+   {id:"i_me",label:"對我的影響",q:"這件事對我的心理或情感帶來什麼影響？"},
+   {id:"i_conc",label:"我下的結論",q:"從這個結果中，我對自己、他人或這段關係得出了什麼結論？"},
+   {id:"i_why",label:"造成結論的意圖與影響",q:"我是根據哪些資訊和假設，才得到這個結論的？",star:true}]}},
+
+{k:"O",zh:"選項與重評",en:"Option & Reframing",
+ lead:"挑戰自己原有的思維模式，探索其他可能性。",berg:"觀點與期待",
+ fact:{cap:"選項",title:"事實與外顯行為",sub:"探索不同的應對方式",fields:[
+   {id:"o_back",label:"如果時間倒流",q:"我可以選擇說些或做些什麼不同的事？"},
+   {id:"o_alt",label:"其他可能性",q:"還有哪些是我沒想過的應對方法或策略？"}]},
+ inner:{cap:"重評",title:"我的經驗與內在歷程",sub:"探索內在的觀點與期待",fields:[
+   {id:"o_assume",label:"背後假設",q:"我當時的反應是基於什麼樣的信念或假設？這個假設合理嗎？"},
+   {id:"o_expect",label:"內心期待",q:"在那樣的情境下，我對自己、對他人有什麼樣的期待？"}]}},
+
+{k:"R",zh:"結果與修復",en:"Result & Recovery",
+ lead:"連結內心深層的渴望，並為未來規劃出有建設性的行動。",berg:"渴望",
+ fact:{cap:"結果與行動",title:"事實與外顯行為",sub:"規劃具體的修復方案",fields:[
+   {id:"r_fix",label:"修復行動",q:"如果重來一次，我會怎麼反應？我會採取什麼具體行動來修復這個事件或關係？例如道歉、溝通。"},
+   {id:"r_next",label:"未來調整",q:"為了避免未來重蹈覆轍，我可以做出哪些具體的行為調整？"}]},
+ inner:{cap:"修復與成長",title:"我的經驗與內在歷程",sub:"連結深層渴望與學習",fields:[
+   {id:"r_want",label:"深層渴望",q:"在那些期待的背後，我內心真正渴望的是什麼？",chips:"want"},
+   {id:"r_ref",label:"深刻反思",q:"這次經驗讓我學到關於自己或他人的什麼事？在自我覺察、社會覺察、負責任的決定中，有什麼深刻的看見？"},
+   {id:"r_grow",label:"成長心態",q:"當我連結到這份渴望時，我如何看待自己？這次經驗如何幫助我成長？"}]}}
+];
+
+const LAYERS=[
+ {name:"行為",note:"看得見的言行",ids:["b_me"],deep:false,above:true},
+ {name:"感受",note:"當下真正的情緒",ids:["s_emo","b_feel"],deep:false},
+ {name:"對感受的感受",note:"我怎麼看待自己的情緒",ids:["b_meta"],deep:false},
+ {name:"觀點與假設",note:"我的解讀、結論與信念",ids:["s_read","i_conc","o_assume"],deep:true},
+ {name:"期待",note:"對自己與對他人的要求",ids:["o_expect"],deep:true},
+ {name:"渴望",note:"被理解、被尊重、歸屬",ids:["r_want"],deep:true}
+];
+
+/* ══════════ 狀態 ══════════ */
+const data={};
+STEPS.forEach(s=>[...s.fact.fields,...s.inner.fields].forEach(f=>data[f.id]=""));
+const ALL_IDS=Object.keys(data);
+let topic="",finalText="",cur=0;
+
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const stepFilled=s=>[...s.fact.fields,...s.inner.fields].some(f=>data[f.id].trim());
+
+/* ══════════ 暫存 ══════════ */
+const STORE_KEY="sbior.teacher.v1";
+let storeOK=true;
+try{localStorage.setItem("__t","1");localStorage.removeItem("__t");}catch(e){storeOK=false;}
+let saveTimer=null;
+
+let saveNote="尚未開始";
+function updateStatus(){
+  const done=ALL_IDS.filter(id=>data[id].trim()).length;
+  const inline=document.getElementById("saveInline");
+  if(inline)inline.textContent=saveNote;
+  const bar=document.getElementById("saveBar");
+  if(bar)bar.textContent=saveNote+"　已填 "+done+" / "+ALL_IDS.length;
+}
+function setSaveText(t){saveNote=t;updateStatus();}
+
+function save(){
+  if(!storeOK){setSaveText("此瀏覽器不允許暫存，請記得下載");return;}
+  try{
+    localStorage.setItem(STORE_KEY,JSON.stringify({v:1,data,topic,finalText,at:Date.now()}));
+    const d=new Date();
+    setSaveText("已存　"+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0"));
+  }catch(e){setSaveText("儲存空間已滿，請先下載");}
+}
+function queueSave(){setSaveText("輸入中");clearTimeout(saveTimer);saveTimer=setTimeout(save,900);}
+
+function applySnapshot(obj){
+  ALL_IDS.forEach(id=>data[id]=(obj.data&&obj.data[id])||"");
+  topic=obj.topic||"";finalText=obj.finalText||"";
+  $("#topic").value=topic;$("#final").value=finalText;autogrow($("#final"));
+}
+function load(){
+  if(!storeOK){setSaveText("此瀏覽器不允許暫存");return;}
+  try{
+    const raw=localStorage.getItem(STORE_KEY);
+    if(!raw){setSaveText("尚未開始");return;}
+    const obj=JSON.parse(raw);
+    applySnapshot(obj);
+    const d=new Date(obj.at||Date.now());
+    setSaveText("已接續 "+(d.getMonth()+1)+"/"+d.getDate()+" 的草稿");
+  }catch(e){setSaveText("尚未開始");}
+}
+
+function autogrow(t){if(!t)return;t.style.height="auto";t.style.height=Math.max(88,t.scrollHeight+4)+"px";}
+
+/* ══════════ 分頁 ══════════ */
+function renderTabs(){
+  const t=$("#tabs");t.innerHTML="";
+  const items=[{n:"",label:"開始之前"}]
+    .concat(STEPS.map((s,i)=>({n:i+1,label:s.zh,done:stepFilled(s)})))
+    .concat([{n:"",label:"冰山與總結"}]);
+  items.forEach((it,i)=>{
+    const b=document.createElement("button");
+    b.className="tab"+(i===cur?" on":"")+(it.done?" done":"");
+    b.innerHTML=(it.n?`<span class="num">${it.n}</span>`:"")+it.label;
+    b.onclick=()=>go(i);
+    t.appendChild(b);
+  });
+  const s=document.createElement("span");
+  s.className="save-state";s.id="saveBar";
+  t.appendChild(s);
+  updateStatus();
+}
+
+function go(i){
+  cur=i;
+  $$("section.page").forEach(p=>p.classList.remove("on"));
+  $("#page-"+i).classList.add("on");
+  if(i===6){renderBerg();renderSummary();}
+  renderTabs();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ══════════ 步驟頁 ══════════ */
+function moodHtml(target){
+  const tabs=MOOD.map((q,i)=>
+    `<button type="button" class="mood-tab" role="tab" data-q="${i}" aria-selected="${i===0?"true":"false"}"><span class="sw" style="background:${q.sw}"></span>${q.label}</button>`).join("");
+  const panels=MOOD.map((q,i)=>
+    `<div class="mood-panel${i===0?" on":""}" data-q="${i}">`+
+    q.words.map(w=>`<button type="button" class="chip q-${q.k}" data-for="${target}" data-word="${w}">${w}</button>`).join("")+`</div>`).join("");
+  return `<div class="mood">
+    <div class="mood-note">情緒儀表板以活力高低與愉悅高低兩個軸線定位情緒。先選一個象限，再點詞填入下方欄位。</div>
+    <div class="mood-tabs" role="tablist">${tabs}</div>${panels}</div>`;
+}
+function wantHtml(target){
+  return `<div class="chips"><div class="chips-label">渴望通常藏在期待的背後</div>`+
+    WANT.map(w=>`<button type="button" class="chip" data-for="${target}" data-word="${w}">${w}</button>`).join("")+`</div>`;
+}
+function colHtml(c,side){
+  let h=`<div class="col ${side}"><p class="cap">${c.cap}</p><h3>${c.title}</h3><p class="csub">${c.sub}</p>`;
+  c.fields.forEach(f=>{
+    h+=`<div class="field"><label for="ta-${f.id}">${f.label}</label><p class="q">${f.q}</p>`;
+    if(f.star)h+=`<div class="star">也想一想　當下為何這樣做，也就是我的意圖。以及若沒有那樣做，事後會有什麼不同。</div>`;
+    if(f.chips==="emo")h+=moodHtml(f.id);
+    if(f.chips==="want")h+=wantHtml(f.id);
+    h+=`<textarea id="ta-${f.id}" data-fid="${f.id}">${esc(data[f.id])}</textarea></div>`;
+  });
+  return h+`</div>`;
+}
+function renderSteps(){
+  const host=$("#steps");host.innerHTML="";
+  STEPS.forEach((s,i)=>{
+    const sec=document.createElement("section");
+    sec.className="page";sec.id="page-"+(i+1);
+    sec.innerHTML=`<div class="card">
+      <div class="step-head">
+        <div class="letter">${s.k}</div>
+        <div><h2>步驟${["一","二","三","四","五"][i]}　${s.zh}</h2>
+          <span class="en">${s.en}</span>
+          <p class="lead">${s.lead}</p></div>
+        <div class="berg-tag">這一步潛入冰山的　${s.berg}</div>
+      </div>
+      <p class="order-hint">建議先填右邊的事實欄，把畫面還原之後，再回到左邊寫下當時心裡真正發生的事。</p>
+      <div class="cols">${colHtml(s.inner,"inner")}${colHtml(s.fact,"fact")}</div>
+      <div class="nav-row">
+        <button class="btn ghost" data-go="${i}">上一步</button>
+        <button class="btn warm" data-go="${i+2}">${i<STEPS.length-1?"下一步　"+STEPS[i+1].zh:"看我的冰山與總結"}</button>
+      </div></div>`;
+    host.appendChild(sec);
+  });
+  $$("#steps textarea").forEach(autogrow);
+  $$("[data-go]").forEach(b=>b.onclick=()=>go(+b.dataset.go));
+}
+
+/* 事件委派：詞彙分頁與詞彙插入 */
+document.addEventListener("click",e=>{
+  const tab=e.target.closest(".mood-tab");
+  if(tab){
+    const wrap=tab.closest(".mood");
+    $$(".mood-tab",wrap).forEach(t=>t.setAttribute("aria-selected",t===tab?"true":"false"));
+    $$(".mood-panel",wrap).forEach(p=>p.classList.toggle("on",p.dataset.q===tab.dataset.q));
+    return;
+  }
+  const chip=e.target.closest(".chip");
+  if(chip){
+    const ta=$("#ta-"+chip.dataset.for);
+    if(!ta)return;
+    const v=ta.value.trim();
+    ta.value=v?(/[、，]$/.test(v)?v+chip.dataset.word:v+"、"+chip.dataset.word):chip.dataset.word;
+    data[chip.dataset.for]=ta.value;
+    ta.focus();autogrow(ta);renderTabs();queueSave();
+  }
+});
+document.addEventListener("input",e=>{
+  const t=e.target;
+  if(t.tagName==="TEXTAREA")autogrow(t);
+  if(t.dataset&&t.dataset.fid){data[t.dataset.fid]=t.value;renderTabs();queueSave();}
+});
+
+/* ══════════ 冰山 ══════════ */
+const BANDS=[
+ {pts:"210,14 258,150 162,150",label:"行為",lx:210,ly:120},
+ {pts:"162,152 258,152 274,214 146,214",label:"感受",lx:210,ly:190},
+ {pts:"146,216 274,216 286,272 134,272",label:"對感受的感受",lx:210,ly:250},
+ {pts:"134,274 286,274 296,336 124,336",label:"觀點與假設",lx:210,ly:312},
+ {pts:"124,338 296,338 282,394 138,394",label:"期待",lx:210,ly:372},
+ {pts:"138,396 282,396 232,452 188,452",label:"渴望",lx:210,ly:428}
+];
+function renderBerg(){
+  let svg=`<svg class="berg" viewBox="0 0 420 470" role="img" aria-label="冰山圖，六個層次會隨著填寫逐一浮現">
+    <defs><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EAF4F8"/><stop offset="100%" stop-color="#CFE6F0"/></linearGradient></defs>
+    <rect x="0" y="151" width="420" height="319" fill="url(#sea)"/>
+    <line x1="8" y1="151" x2="412" y2="151" stroke="#6FD6C4" stroke-width="1.6" stroke-dasharray="6 5"/>
+    <text class="wl" x="8" y="145">水 面</text>`;
+  BANDS.forEach((b,i)=>{
+    const L=LAYERS[i],on=L.ids.some(id=>data[id].trim());
+    svg+=`<polygon class="band${L.above?" above":""}${L.deep?" deep":""}${on?" filled":""}" points="${b.pts}"/>
+      <text x="${b.lx}" y="${b.ly}" text-anchor="middle" fill="${on?"#08303F":"#5D7B8A"}">${b.label}</text>`;
+  });
+  svg+=`</svg>`;
+  $("#bergWrap").innerHTML=svg;
+  let l="";
+  LAYERS.forEach(L=>{
+    const on=L.ids.some(id=>data[id].trim());
+    l+=`<div class="layer${on?" filled":""}"><b>${L.name}</b><span>${L.note}</span></div>`;
+  });
+  $("#layers").innerHTML=l;
+}
+
+/* ══════════ 總結 ══════════ */
+function sideHtml(c,cls){
+  let h=`<div class="sum-side ${cls}"><p class="side-cap">${cls==="f"?"右手欄　事實":"左手欄　內在"}　${c.cap}</p>`;
+  c.fields.forEach(f=>{
+    const v=data[f.id].trim();
+    h+=`<p class="k">${f.label}</p><p class="v${v?"":" empty"}">${v?esc(v):"尚未填寫"}</p>`;
+  });
+  return h+`</div>`;
+}
+function renderSummary(){
+  let h="";
+  if(topic.trim())h+=`<div class="sum-block"><h3>我想要反思的事件</h3><p class="v">${esc(topic)}</p></div>`;
+  STEPS.forEach(s=>{
+    h+=`<div class="sum-block"><h3>${s.k}　${s.zh}<em>${s.en}</em></h3>
+      <div class="sum-two">${sideHtml(s.fact,"f")}${sideHtml(s.inner,"i")}</div></div>`;
+  });
+  if(finalText.trim())h+=`<div class="sum-block"><h3>總結與收穫</h3><p class="v" style="white-space:pre-wrap">${esc(finalText)}</p></div>`;
+  $("#summary").innerHTML=h;
+}
+function asText(){
+  let o=`潛入內在冰山　SBIOR 深度反思與專業成長學習單　教師版\n我想要反思的事件是　${topic||"（未填）"}\n`;
+  o+="────────────────────\n";
+  STEPS.forEach((s,i)=>{
+    o+=`\n【步驟${i+1}】${s.k}　${s.zh}（${s.en}）\n`;
+    o+=`\n〔右手欄　事實〕\n`;
+    s.fact.fields.forEach(f=>o+=`${f.label}\n${data[f.id].trim()||"（尚未填寫）"}\n`);
+    o+=`\n〔左手欄　內在〕\n`;
+    s.inner.fields.forEach(f=>o+=`${f.label}\n${data[f.id].trim()||"（尚未填寫）"}\n`);
+  });
+  o+=`\n────────────────────\n【總結與收穫】\n${finalText.trim()||"（尚未填寫）"}\n`;
+  o+=`\n課程設計　國立臺灣師範大學陳佩英教授計畫團隊．愛思客團隊　幸福 O3 課程系列\n`;
+  return o;
+}
+
+/* ══════════ 工具 ══════════ */
+let tid;
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(tid);tid=setTimeout(()=>t.classList.remove("on"),2000);}
+async function copyText(text){
+  try{
+    if(!navigator.clipboard)throw new Error("no clipboard");
+    await navigator.clipboard.writeText(text);
+    toast("已複製，可以直接貼到共編文件");
+  }catch(e){
+    const ta=document.createElement("textarea");
+    ta.value=text;document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy");toast("已複製，可以直接貼到共編文件");}
+    catch(e2){toast("這個瀏覽器不允許複製，請改用下載文字檔");}
+    ta.remove();
+  }
+}
+function fileName(ext){
+  const n=(topic||"SBIOR教師版").slice(0,20).replace(/[\\/:*?"<>|]/g,"");
+  return n+ext;
+}
+
+$("#topic").addEventListener("input",e=>{topic=e.target.value;queueSave();});
+$("#final").addEventListener("input",e=>{finalText=e.target.value;queueSave();});
+$("#btn-copy").onclick=()=>copyText(asText());
+$("#btn-download").onclick=()=>{
+  const b=new Blob(["\ufeff"+asText()],{type:"text/plain;charset=utf-8"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(b);
+  a.download=fileName(".txt");a.click();URL.revokeObjectURL(a.href);toast("已下載");
+};
+$("#btn-print").onclick=()=>{buildPrint();window.print();};
+$("#btn-backup").onclick=()=>{
+  save();
+  const b=new Blob([JSON.stringify({v:1,data,topic,finalText,at:Date.now()},null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(b);
+  a.download=fileName(".sbior.json");a.click();URL.revokeObjectURL(a.href);
+  toast("備份已下載，可帶到另一台裝置接續");
+};
+$("#btn-restore").onclick=()=>$("#file-restore").click();
+$("#file-restore").addEventListener("change",e=>{
+  const f=e.target.files&&e.target.files[0];
+  if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const obj=JSON.parse(r.result);
+      if(!obj||typeof obj.data!=="object")throw new Error("格式不符");
+      if(!confirm("讀取備份會覆蓋目前的內容，要繼續嗎？"))return;
+      applySnapshot(obj);
+      renderSteps();renderBerg();renderSummary();renderTabs();save();go(0);
+      toast("已讀取備份");
+    }catch(err){toast("這個檔案讀不出來，請選擇 .sbior.json 備份檔");}
+  };
+  r.readAsText(f);e.target.value="";
+});
+$("#btn-clear").onclick=()=>{
+  if(!confirm("清空所有欄位，這個動作無法復原。建議先下載備份檔。確定嗎？"))return;
+  ALL_IDS.forEach(k=>data[k]="");
+  topic="";finalText="";$("#topic").value="";$("#final").value="";
+  try{localStorage.removeItem(STORE_KEY);}catch(e){}
+  setSaveText("已清空");
+  renderSteps();renderBerg();renderSummary();renderTabs();go(0);toast("已清空");
+};
+function buildPrint(){
+  let h=`<h2 style="font-family:var(--serif);margin:0 0 4px">潛入內在冰山　SBIOR 深度反思學習單　教師版</h2>
+   <p style="font-size:13px;color:#555;margin:0 0 16px">我想要反思的事件是　${esc(topic)||"＿＿＿＿＿＿＿＿＿＿"}</p>`;
+  STEPS.forEach((s,i)=>{
+    h+=`<div class="sum-block"><h3>步驟${i+1}　${s.k}　${s.zh}<em>${s.en}</em></h3>
+      <div class="sum-two">${sideHtml(s.fact,"f")}${sideHtml(s.inner,"i")}</div></div>`;
+  });
+  h+=`<div class="sum-block"><h3>總結與收穫</h3><p class="v" style="white-space:pre-wrap;min-height:60px">${esc(finalText)}</p></div>`;
+  $("#print-area").innerHTML=h;
+}
+
+/* ══════════ 啟動 ══════════ */
+load();
+renderSteps();renderTabs();renderBerg();renderSummary();
+</script>
+</body>
+</html>
